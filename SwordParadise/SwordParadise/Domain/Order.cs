@@ -18,7 +18,10 @@ namespace SwordParadise.Domain
         public virtual ApplicationUser User { get; set; }
         [Required]
         public int Quantity { get; set; }
+        [Required]
+        [Range(50, 1500)]
         public decimal Price { get; set; }
+        [Range(1, 70)]
         public decimal Discount { get; set; }
         public decimal TotalPrice 
         {
