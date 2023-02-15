@@ -24,9 +24,9 @@ namespace SwordParadise.Domain
         [Required]
         public string Description { get; set; }
         [Required]
-        [Range(50, 1500)]
+        [Range(0, 3000)]
         public decimal Price { get; set; }
-        [Range(1, 70)]
+        [Range(0, 100)]
         public decimal Discount { get; set; }
         public virtual IEnumerable<Order> Orders { get; set; } = new List<Order>();
     }
