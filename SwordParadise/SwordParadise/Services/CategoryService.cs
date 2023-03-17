@@ -24,9 +24,9 @@ namespace SwordParadise.Services
             List<Category> categories = _context.Categories.ToList();
             return categories;
         }
-        public List<Product> GetProductsByCategory(int categoryId)
+        public List<Weapon> GetWeaponsByCategory(int categoryId)
         {
-            return _context.Products
+            return _context.Weapons
                 .Where(x => x.CategoryId == categoryId)
                 .ToList();
         }

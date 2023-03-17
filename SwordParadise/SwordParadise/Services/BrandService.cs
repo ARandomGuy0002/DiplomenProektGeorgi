@@ -24,9 +24,9 @@ namespace SwordParadise.Services
             List<Brand> brands = _context.Brands.ToList();
             return brands;
         }
-        public List<Product> GetProductsByBrand(int brandId) 
+        public List<Weapon> GetWeaponsByBrand(int brandId) 
         {
-            return _context.Products
+            return _context.Weapons
                 .Where(x => x.BrandId == brandId)
                 .ToList();
         }

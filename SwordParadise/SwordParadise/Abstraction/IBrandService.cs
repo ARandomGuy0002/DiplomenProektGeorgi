@@ -7,6 +7,6 @@ namespace SwordParadise.Abstraction
     {
         List<Brand> GetBrands();
         Brand GetBrandById(int brandId);
-        List<Product> GetProductsByBrand(int brandId);
+        List<Weapon> GetWeaponsByBrand(int brandId);
     }
 }

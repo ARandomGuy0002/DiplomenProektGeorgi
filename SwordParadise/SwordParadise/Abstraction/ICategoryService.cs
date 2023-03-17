@@ -7,6 +7,6 @@ namespace SwordParadise.Abstraction
     {
         List<Category> GetCategories();
         Category GetCategoryById(int categoryId);
-        List<Product> GetProductsByCategory(int categoryId);
+        List<Weapon> GetWeaponsByCategory(int categoryId);
     }
 }

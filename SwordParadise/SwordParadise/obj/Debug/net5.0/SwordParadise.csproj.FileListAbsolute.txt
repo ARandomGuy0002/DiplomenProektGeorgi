@@ -848,3 +848,10 @@ D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Areas\Identity\Pag
 D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\Create.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\Index.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\Edit.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\Details.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\CreateSuccess.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\Delete.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\DeleteSuccess.cshtml.g.cs

@@ -39,6 +39,7 @@ namespace SwordParadise
                 .AddDefaultTokenProviders();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddTransient<IWeaponService, WeaponService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IBrandService, BrandService>();
             services.Configure<IdentityOptions>(option =>
