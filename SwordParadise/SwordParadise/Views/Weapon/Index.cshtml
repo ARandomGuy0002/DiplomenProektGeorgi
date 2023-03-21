@@ -1,4 +1,5 @@
-﻿@model IEnumerable<SwordParadise.Models.Weapon.WeaponIndexVM>
+﻿@using SwordParadise.Models.Order;
+@model IEnumerable<SwordParadise.Models.Weapon.WeaponIndexVM>
 
 @{
     ViewData["Title"] = "Index";
@@ -82,7 +83,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Discount)
             </td>
-            <td>
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                    <td>
+                        @await Html.PartialAsync("_OrderPartialView", new OrderConfirmVM
+                        {
+                            WeaponId = item.Id
+                        })
+                    </td>   
+                }
+                <td>
                     @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
                     {
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>

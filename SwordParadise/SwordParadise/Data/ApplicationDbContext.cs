@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using SwordParadise.Models.Weapon;
+using SwordParadise.Models.Order;
 
 namespace SwordParadise.Data
 {
@@ -24,5 +25,7 @@ namespace SwordParadise.Data
         public DbSet<SwordParadise.Models.Weapon.WeaponEditVM> WeaponEditVM { get; set; }
         public DbSet<SwordParadise.Models.Weapon.WeaponDetailsVM> WeaponDetailsVM { get; set; }
         public DbSet<SwordParadise.Models.Weapon.WeaponDeleteVM> WeaponDeleteVM { get; set; }
+        public DbSet<SwordParadise.Models.Order.OrderIndexVM> OrderIndexVM { get; set; }
+        public DbSet<SwordParadise.Models.Order.OrderConfirmVM> OrderConfirmVM { get; set; }
     }
 }

@@ -11,8 +11,8 @@ namespace SwordParadise.Domain
         [Required]
         public DateTime OrderDate { get; set; }
         [Required]
-        public int ProductId { get; set; }
-        public virtual Weapon Weapons { get; set; }
+        public int WeaponId { get; set; }
+        public virtual Weapon Weapon { get; set; }
         [Required] 
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }

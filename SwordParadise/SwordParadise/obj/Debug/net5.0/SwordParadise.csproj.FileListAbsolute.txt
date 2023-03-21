@@ -855,3 +855,7 @@ D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\Detai
 D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\CreateSuccess.cshtml.g.cs
 D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\Delete.cshtml.g.cs
 D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\DeleteSuccess.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Weapon\_OrderPartialView.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Order\Index.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Order\MyOrders.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Order\Create.cshtml.g.cs
