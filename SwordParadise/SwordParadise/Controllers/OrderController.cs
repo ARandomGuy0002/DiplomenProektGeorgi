@@ -37,6 +37,7 @@ namespace SwordParadise.Controllers
                 Weapon = x.Weapon.WeaponName,
                 Picture = x.Weapon.Picture,
                 Quantity = x.Quantity,
+                Description = x.Weapon.Description,
                 Price = x.Price,
                 Discount = x.Discount,
                 TotalPrice = x.TotalPrice,
