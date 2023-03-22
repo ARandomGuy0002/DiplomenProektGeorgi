@@ -42,6 +42,7 @@ namespace SwordParadise
             services.AddTransient<IWeaponService, WeaponService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IBrandService, BrandService>();
+            services.AddTransient<IStatisticsService, StatisticsService>();
             services.Configure<IdentityOptions>(option =>
             {
                 option.Password.RequireDigit= false;

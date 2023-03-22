@@ -862,3 +862,4 @@ D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Order\Create
 D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Client\Index.cshtml.g.cs
 D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Client\Delete.cshtml.g.cs
 D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Client\SuccessDeleteUser.cshtml.g.cs
+D:\Diploma\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Statistics\Index.cshtml.g.cs
