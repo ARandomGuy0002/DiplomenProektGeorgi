@@ -122,7 +122,7 @@ namespace SwordParadise.Controllers
                 var user = _context.Users.SingleOrDefault(u => u.Id == userId);
                 var weapon = this._context.Weapons.SingleOrDefault(x => x.Id == bindingModel.WeaponId);
 
-                if (user == null || weapon == null || bindingModel.Quantity < bindingModel.Quantity || bindingModel.Quantity == 0)
+                if (user == null || weapon == null || weapon.Quantity < bindingModel.Quantity || bindingModel.Quantity == 0)
                 {
                     return this.RedirectToAction("Index", "Weapon");
                 }
