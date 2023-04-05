@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    button{display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    }
+</style>
+@{
+    ViewBag.Title = "Under 18";
+}
+
+<div>
+    <h2>You must be 18 or older to view this site.</h2>
+    <p>Sorry, you are not old enough to view this content.</p>
+    <button id="leave-site" class="button">Leave Site</button>
+</div>
+
+@section Scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#leave-site').click(function () {
+                    // Redirect the user to a safe site
+                    window.location.href = "https://www.google.com";
+                });
+            });
+        </script>
+}

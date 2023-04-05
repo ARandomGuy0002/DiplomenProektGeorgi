@@ -33,5 +33,9 @@ namespace SwordParadise.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public ActionResult Under18()
+        {
+            return View();
+        }
     }
 }
