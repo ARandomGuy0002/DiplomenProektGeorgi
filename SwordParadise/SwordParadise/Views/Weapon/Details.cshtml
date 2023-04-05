@@ -6,30 +6,147 @@
 
 <h1>Details</h1>
 <style>
-    .review {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    .name {
-      font-weight: bold;
-      margin-right: 5px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
 
-    .stars {
-      color: orange;
-    }
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
-    .star {
-      font-size: 16px;
-      margin-right: 2px;
-    }
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    .comment {
-      font-style: italic;
-    }
-  </style>
+#reviews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.review {
+  width: 48%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.review:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.review:not(.active) {
+  display: none;
+}
+
+.name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stars {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.star {
+  color: #ffcc00;
+}
+
+.comment {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.arrow {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.arrow:hover {
+  background-color: #555;
+}
+
+.arrow:active {
+  background-color: #777;
+}
+
+#reviews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.review {
+  width: 400px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.review.active {
+  border: 2px solid #0077FF;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.stars {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.star {
+  color: #FFD700;
+  font-size: 18px;
+}
+
+.comment {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+  .review {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+</style>
 <div>
     <h4>WeaponDetailsVM</h4>
     <hr />
@@ -85,6 +202,10 @@
     </dl>
     <h1>Reviews</h1>
     <div id="reviews"></div>
+    <div class="arrows">
+        <div id="prev-arrow" class="arrow">&#10094;</div>
+        <div id="next-arrow" class="arrow">&#10095;</div>
+    </div><br /><br />
     @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
     {
         <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
@@ -92,55 +213,33 @@
     <a asp-action="Index">Back to List</a>
 </div>
 <script>
-    const names = [
-        "John",
-        "Sarah",
-        "David",
-        "Emily",
-        "Michael",
-        "Jessica",
-        "Jason",
-        "Jennifer",
-        "Andrew",
-        "Amanda"
-    ];
-
-    const comments = [
-        "Great product!",
-        "I love this!",
-        "So useful and convenient!",
-        "Highly recommend!",
-        "Best purchase ever!",
-        "Exactly what I needed.",
-        "Can't live without it!",
-        "Worth every penny.",
-        "So happy with this purchase!",
-        "Excellent quality and value."
-    ];
-
-    function getRandomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function getRandomName() {
-        return names[getRandomNumber(0, names.length - 1)];
-    }
-
-    function getRandomStarRating() {
-        return getRandomNumber(4, 5);
-    }
-
-    function getRandomComment() {
-        return comments[getRandomNumber(0, comments.length - 1)];
-    }
-
     function generateRandomReview() {
-        return {
-            name: getRandomName(),
-            stars: getRandomStarRating(),
-            comment: getRandomComment()
-        };
+        const names = ["John", "Jane", "Bob", "Samantha", "Emily", "Ethan", "Olivia", "Liam", "Sophia", "Noah", "Emma", "William", "Isabella", "James", "Mia"];
+        const comments = [
+            "This product is amazing!",
+            "I love this product so much.",
+            "This product exceeded my expectations.",
+            "I would definitely recommend this product.",
+            "This is the best product I have ever purchased.",
+            "This was a game changer for me!",
+            "I'm blown away by the performance!",
+            "This exceeded my expectations!",
+            "Absolutely amazing!",
+            "I've never felt more confident with a weapon!",
+            "Such a fantastic addition to my collection!",
+            "I can't believe how accurate this is!",
+            "Incredible craftsmanship and quality!",
+            "This has quickly become my go-to weapon!",
+            "I am thoroughly impressed with this product!"
+
+        ];
+        const stars = Math.floor(Math.random() * 2) + 4;
+        const name = names[Math.floor(Math.random() * names.length)];
+        const comment = comments[Math.floor(Math.random() * comments.length)];
+        return { name, comment, stars };
     }
+
+    let currentReviewIndex = 0;
 
     function generateReviews(numReviews) {
         const reviewsContainer = document.getElementById("reviews");
@@ -172,9 +271,37 @@
 
             reviewsContainer.appendChild(reviewContainer);
         }
+
+        // Add event listeners to arrow buttons
+        const prevArrow = document.getElementById("prev-arrow");
+        const nextArrow = document.getElementById("next-arrow");
+
+        prevArrow.addEventListener("click", () => {
+            const reviews = document.querySelectorAll(".review");
+            reviews[currentReviewIndex].classList.remove("active");
+            currentReviewIndex--;
+            if (currentReviewIndex < 0) {
+                currentReviewIndex = reviews.length - 1;
+            }
+            reviews[currentReviewIndex].classList.add("active");
+        });
+
+        nextArrow.addEventListener("click", () => {
+            const reviews = document.querySelectorAll(".review");
+            reviews[currentReviewIndex].classList.remove("active");
+            currentReviewIndex++;
+            if (currentReviewIndex >= reviews.length) {
+                currentReviewIndex = 0;
+            }
+            reviews[currentReviewIndex].classList.add("active");
+        });
+
+        // Show the first review as active
+        const reviews = document.querySelectorAll(".review");
+        reviews[currentReviewIndex].classList.add("active");
     }
 
-    generateReviews(4);
+    generateReviews(5);
 </script>
 @section Scripts{
     @{
