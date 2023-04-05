@@ -5,7 +5,31 @@
 }
 
 <h1>Details</h1>
+<style>
+    .review {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
 
+    .name {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    .stars {
+      color: orange;
+    }
+
+    .star {
+      font-size: 16px;
+      margin-right: 2px;
+    }
+
+    .comment {
+      font-style: italic;
+    }
+  </style>
 <div>
     <h4>WeaponDetailsVM</h4>
     <hr />
@@ -60,14 +84,7 @@
         </dd>
     </dl>
     <h1>Reviews</h1>
-    <ul>
-        <li><span id="review1"></span></li>
-        <li><span id="review2"></span></li>
-        <li><span id="review3"></span></li>
-        <li><span id="review4"></span></li>
-    </ul>
-</div>
-<div>
+    <div id="reviews"></div>
     @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
     {
         <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
@@ -75,51 +92,89 @@
     <a asp-action="Index">Back to List</a>
 </div>
 <script>
-    const reviews = [
-        "This weapon is incredibly powerful and accurate. It's my go-to choice for long-range engagements.",
-        "I was skeptical at first, but this weapon proved to be surprisingly effective in close-quarters combat.",
-        "Although it may not have the highest damage output, this weapon's versatility makes it a solid choice in a variety of situations.",
-        "This weapon is definitely not for the faint of heart. It has a high recoil and a steep learning curve, but in the hands of a skilled operator it can be devastating.",
-        "This weapon is a beast! It deals massive damage and has excellent range, making it the perfect choice for taking out enemies from a distance.",
-        "I've used a lot of weapons in my time, but this one stands out as one of the best. It's easy to use and incredibly effective.",
-        "Don't let its size fool you, this weapon packs a serious punch. It's perfect for taking out multiple enemies at once.",
-        "This weapon is my secret weapon. It's not well-known, but it's incredibly effective in certain situations.",
-        "I wasn't sure about this weapon at first, but after using it for a while I've grown to love it. Its unique features make it stand out from the crowd.",
-        "This weapon is a work of art. It's beautifully crafted and incredibly deadly. I wouldn't want to be on the wrong end of it."
+    const names = [
+        "John",
+        "Sarah",
+        "David",
+        "Emily",
+        "Michael",
+        "Jessica",
+        "Jason",
+        "Jennifer",
+        "Andrew",
+        "Amanda"
     ];
-    function generateStarRating() {
-        return (Math.floor(Math.random() * 2) + 4);
+
+    const comments = [
+        "Great product!",
+        "I love this!",
+        "So useful and convenient!",
+        "Highly recommend!",
+        "Best purchase ever!",
+        "Exactly what I needed.",
+        "Can't live without it!",
+        "Worth every penny.",
+        "So happy with this purchase!",
+        "Excellent quality and value."
+    ];
+
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    function generateName() {
-        const names = [
-            "Georgi",
-            "Mia",
-            "Max",
-            "Samantha",
-            "Liam",
-            "Ava",
-            "Owen",
-            "Zoe",
-            "Ethan",
-            "Emma"
-        ];
-        return names[Math.floor(Math.random() * names.length)];
+
+    function getRandomName() {
+        return names[getRandomNumber(0, names.length - 1)];
     }
-    function generateReviews() {
-        let chosenReviews = [];
-        while (chosenReviews.length < 4) {
-            let randomReview = reviews[Math.floor(Math.random() * reviews.length)];
-            if (!chosenReviews.includes(randomReview)) {
-                chosenReviews.push(randomReview);
+
+    function getRandomStarRating() {
+        return getRandomNumber(4, 5);
+    }
+
+    function getRandomComment() {
+        return comments[getRandomNumber(0, comments.length - 1)];
+    }
+
+    function generateRandomReview() {
+        return {
+            name: getRandomName(),
+            stars: getRandomStarRating(),
+            comment: getRandomComment()
+        };
+    }
+
+    function generateReviews(numReviews) {
+        const reviewsContainer = document.getElementById("reviews");
+
+        for (let i = 0; i < numReviews; i++) {
+            const review = generateRandomReview();
+            const reviewContainer = document.createElement("div");
+            reviewContainer.classList.add("review");
+
+            const nameElement = document.createElement("span");
+            nameElement.classList.add("name");
+            nameElement.textContent = review.name;
+            reviewContainer.appendChild(nameElement);
+
+            const starsElement = document.createElement("span");
+            starsElement.classList.add("stars");
+            reviewContainer.appendChild(starsElement);
+            for (let j = 0; j < review.stars; j++) {
+                const starElement = document.createElement("span");
+                starElement.classList.add("star");
+                starElement.textContent = "★";
+                starsElement.appendChild(starElement);
             }
+
+            const commentElement = document.createElement("p");
+            commentElement.classList.add("comment");
+            commentElement.textContent = review.comment;
+            reviewContainer.appendChild(commentElement);
+
+            reviewsContainer.appendChild(reviewContainer);
         }
-        return chosenReviews;
     }
-    const randomReviews = generateReviews();
-    document.getElementById("review1").textContent = generateName() + ": " + randomReviews[0] + " ( " + generateStarRating() + " stars )";
-    document.getElementById("review2").textContent = generateName() + ": " + randomReviews[1] + " ( " + generateStarRating() + " stars )";
-    document.getElementById("review3").textContent = generateName() + ": " + randomReviews[2] + " ( " + generateStarRating() + " stars )";
-    document.getElementById("review4").textContent = generateName() + ": " + randomReviews[3] + " ( " + generateStarRating() + " stars )";
+
+    generateReviews(4);
 </script>
 @section Scripts{
     @{
