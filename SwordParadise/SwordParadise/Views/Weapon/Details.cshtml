@@ -272,7 +272,6 @@ h1 {
             reviewsContainer.appendChild(reviewContainer);
         }
 
-        // Add event listeners to arrow buttons
         const prevArrow = document.getElementById("prev-arrow");
         const nextArrow = document.getElementById("next-arrow");
 
@@ -296,7 +295,6 @@ h1 {
             reviews[currentReviewIndex].classList.add("active");
         });
 
-        // Show the first review as active
         const reviews = document.querySelectorAll(".review");
         reviews[currentReviewIndex].classList.add("active");
     }

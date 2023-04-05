@@ -36,19 +36,76 @@
 </div>
 <script>
     $(document).ready(function () {
-    var over18Popup = $('#over-18-popup');
+        var over18Popup = $('#over-18-popup');
 
-    // Show the popup when the page loads
-    over18Popup.show();
+        // Check if the user has already confirmed their age
+        if (getCookie('ageConfirmed') === 'true') {
+            over18Popup.hide();
+        } else {
+            // Show the popup when the page loads
+            over18Popup.show();
+        }
 
-    // When the user clicks the Yes button, hide the popup and continue with the site
-    $('#yes-btn').click(function () {
-        over18Popup.hide();
-    });
+        // When the user clicks the Yes button, hide the popup and set a cookie to remember their choice
+        $('#yes-btn').click(function () {
+            over18Popup.hide();
+            setCookie('ageConfirmed', 'true', 1); // The cookie will expire in 1 day
+        });
 
-    // When the user clicks the No button, redirect them to a different page (e.g. a parental consent form)
-    $('#no-btn').click(function () {
+        // When the user clicks the No button, redirect them to a different page (e.g. a parental consent form)
+        $('#no-btn').click(function () {
             window.location.href = "@Url.Action("Under18", "Home")";
+        });
     });
-});
+
+    // Helper functions to set and get cookies
+    $(document).ready(function () {
+        var over18Popup = $('#over-18-popup');
+
+        // Check if the user has already confirmed their age
+        if (getCookie('ageConfirmed') === 'true') {
+            over18Popup.hide();
+        } else {
+            // Show the popup when the page loads
+            over18Popup.show();
+        }
+
+        // When the user clicks the Yes button, hide the popup and set a cookie to remember their choice
+        $('#yes-btn').click(function () {
+            over18Popup.hide();
+            setCookie('ageConfirmed', 'true', 1); // The cookie will expire in 1 day
+        });
+
+        // When the user clicks the No button, set a cookie to prevent access for the rest of the day
+        $('#no-btn').click(function () {
+            setCookie('ageConfirmed', 'under18', 1); // The cookie will expire in 1 day
+            window.location.href = "@Url.Action("Under18", "Home")";
+        });
+    });
+
+    // Helper functions to set and get cookies
+    function setCookie(name, value, days) {
+        var expires = '';
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = '; expires=' + date.toUTCString();
+        }
+        document.cookie = name + '=' + value + expires + '; path=/';
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + '=';
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+    function deleteCookie(name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+    }
+    //deleteCookie('ageConfirmed');
 </script>
