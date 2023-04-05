@@ -1,7 +1,32 @@
 ﻿@{ 
     ViewData["Title"] = "CreateSuccess";
 }
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+</style>
 <h1>You successfully added a product</h1>
 <div>
     <a asp-action="Create">Add a new product</a>

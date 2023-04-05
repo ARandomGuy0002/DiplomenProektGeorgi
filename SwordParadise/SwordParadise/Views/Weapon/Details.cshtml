@@ -205,7 +205,7 @@ h1 {
     <div class="arrows">
         <div id="prev-arrow" class="arrow">&#10094;</div>
         <div id="next-arrow" class="arrow">&#10095;</div>
-    </div><br /><br />
+    </div><br />
     @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
     {
         <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
