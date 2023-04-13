@@ -6,6 +6,9 @@
 
 <h1>Details</h1>
 <style>
+    .gradient-custom {
+        background: linear-gradient(to bottom, #fe90d2, #fefa3f);
+    }
     * {
   box-sizing: border-box;
   margin: 0;
@@ -147,6 +150,7 @@ h1 {
   }
 }
 </style>
+<body class="gradient-custom">
 <div>
     <h4>WeaponDetailsVM</h4>
     <hr />
@@ -212,6 +216,7 @@ h1 {
     }|
     <a asp-action="Index">Back to List</a>
 </div>
+</body>
 <script>
     function generateRandomReview() {
         const names = ["John", "Jane", "Bob", "Samantha", "Emily", "Ethan", "Olivia", "Liam", "Sophia", "Noah", "Emma", "William", "Isabella", "James", "Mia"];

@@ -2,6 +2,9 @@
     ViewData["Title"] = "DeleteSuccess";
 }
 <style>
+    .gradient-custom {
+        background: linear-gradient(to bottom, #fe90d2, #fefa3f);
+    }
     * {
         box-sizing: border-box;
         margin: 0;
@@ -27,6 +30,7 @@
         margin-bottom: 20px;
     }
 </style>
+<body class="gradient-custom">
 <h1>You successfully deleted a product</h1>
 <div>
     <a asp-action="Create">Add a new product</a>
@@ -35,3 +39,4 @@
 <div>
     <a asp-action="Index">List all</a>
 </div>
+</body>

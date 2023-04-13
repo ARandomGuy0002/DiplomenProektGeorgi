@@ -1,4 +1,7 @@
 ﻿<style>
+    .gradient-custom {
+        background: linear-gradient(to bottom, #fe90d2, #fefa3f);
+    }
     .popup {
     display: none;
     position: fixed;
@@ -29,61 +32,53 @@
     cursor: pointer;
 }
 </style>
+<body class="gradient-custom">
 <div id="over-18-popup" class="popup">
     <h3>Are you over 18?</h3>
     <button id="yes-btn">Yes</button>
     <button id="no-btn">No</button>
 </div>
+</body>
 <script>
     $(document).ready(function () {
         var over18Popup = $('#over-18-popup');
 
-        // Check if the user has already confirmed their age
         if (getCookie('ageConfirmed') === 'true') {
             over18Popup.hide();
         } else {
-            // Show the popup when the page loads
             over18Popup.show();
         }
 
-        // When the user clicks the Yes button, hide the popup and set a cookie to remember their choice
         $('#yes-btn').click(function () {
             over18Popup.hide();
-            setCookie('ageConfirmed', 'true', 1); // The cookie will expire in 1 day
+            setCookie('ageConfirmed', 'true', 1);
         });
 
-        // When the user clicks the No button, redirect them to a different page (e.g. a parental consent form)
         $('#no-btn').click(function () {
             window.location.href = "@Url.Action("Under18", "Home")";
         });
     });
 
-    // Helper functions to set and get cookies
     $(document).ready(function () {
         var over18Popup = $('#over-18-popup');
 
-        // Check if the user has already confirmed their age
         if (getCookie('ageConfirmed') === 'true') {
             over18Popup.hide();
         } else {
-            // Show the popup when the page loads
             over18Popup.show();
         }
 
-        // When the user clicks the Yes button, hide the popup and set a cookie to remember their choice
         $('#yes-btn').click(function () {
             over18Popup.hide();
-            setCookie('ageConfirmed', 'true', 1); // The cookie will expire in 1 day
+            setCookie('ageConfirmed', 'true', 1);
         });
 
-        // When the user clicks the No button, set a cookie to prevent access for the rest of the day
         $('#no-btn').click(function () {
-            setCookie('ageConfirmed', 'under18', 1); // The cookie will expire in 1 day
+            setCookie('ageConfirmed', 'under18', 1);
             window.location.href = "@Url.Action("Under18", "Home")";
         });
     });
 
-    // Helper functions to set and get cookies
     function setCookie(name, value, days) {
         var expires = '';
         if (days) {

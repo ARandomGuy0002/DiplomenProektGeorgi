@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html>
 <style>
+    .gradient-custom {
+        background: linear-gradient(to bottom, #fe90d2, #fefa3f);
+    }
     * {
         box-sizing: border-box;
         margin: 0;
@@ -36,6 +39,7 @@
     cursor: pointer;
     }
 </style>
+<body class="gradient-custom">
 @{
     ViewBag.Title = "Under 18";
 }
@@ -45,6 +49,7 @@
     <p>Sorry, you are not old enough to view this content.</p>
     <button id="leave-site" class="button">Leave Site</button>
 </div>
+</body>
 
 @section Scripts {
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

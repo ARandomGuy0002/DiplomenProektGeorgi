@@ -4,6 +4,9 @@
     ViewData["Title"] = "Index";
 }
 <style>
+    .gradient-custom {
+        background: linear-gradient(to bottom, #fe90d2, #fefa3f);
+    }
     * {
         box-sizing: border-box;
         margin: 0;
@@ -29,6 +32,7 @@
         margin-bottom: 20px;
     }
 </style>
+<body class="gradient-custom">
 <h1>Index</h1>
 
 
@@ -99,6 +103,7 @@
 }
     </tbody>
 </table>
+</body>
 @section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

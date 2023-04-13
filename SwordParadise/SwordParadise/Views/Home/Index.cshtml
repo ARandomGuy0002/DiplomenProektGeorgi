@@ -2,6 +2,9 @@
     ViewData["Title"] = "Home Page";
 }
 <style>
+    .gradient-custom {
+        background: linear-gradient(to bottom, #fe90d2, #fefa3f);
+    }
     * {
         box-sizing: border-box;
         margin: 0;
@@ -27,7 +30,7 @@
         margin-bottom: 20px;
     }
 </style>
-<body>
+<body class="gradient-custom">
 @Html.Partial("Over18Popup")
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
