@@ -31,61 +31,132 @@
         text-align: center;
         margin-bottom: 20px;
     }
+
+    .weapon-details-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .weapon-details {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        width: 80%;
+    }
+
+    .weapon-image img {
+        max-width: 400px;
+    }
+
+    .weapon-info {
+        margin-left: 50px;
+    }
+
+    .weapon-name {
+        font-size: 36px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .brand,
+    .category,
+    .quantity,
+    .description {
+        margin: 0;
+        font-size: 18px;
+    }
+
+        .brand:before,
+        .category:before,
+        .quantity:before,
+        .description:before {
+            font-weight: bold;
+            content: attr(data-display-name) ": ";
+        }
+
+    .price-section {
+        margin-top: 20px;
+    }
+
+    .price {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .total-price {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .discount {
+        margin: 0;
+        font-size: 24px;
+        color: #ff0000;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .create-new-container {
+        text-align: center;
+    }
+
+    .create-new-btn {
+        background-color: #fe90d2;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .create-new-btn:hover {
+            background-color: #ff6fba;
+            text-decoration: none;
+            color: black;
+        }
+
+        .create-new-btn:focus {
+            outline: none;
+        }
 </style>
 <body class="gradient-custom">
 <h1>Confirm</h1>
 <form asp-controller="Order" asp-action="Create" method="post">
-    <div>
-        <h4>OrderConfirmVM</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.WeaponName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.WeaponName)
-            </dd>
-            <dt class="col-sm-2">
-                Picture
-            </dt>
-            <dd class="col-sm-10">
-                <img src="@Html.DisplayFor(model => model.Picture)" alt="Image" width="100" />
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Quantity)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Quantity)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Price)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Discount)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Discount)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.TotalPrice)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.TotalPrice)
-            </dd>
-        </dl>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Confirm" class="btn btn-primary" />
-    </div>
+    <div class="weapon-details-container">
+            <div class="weapon-details">
+                <div class="weapon-image">
+                    <img src="@Html.DisplayFor(model => model.Picture)" alt="Image" />
+                </div>
+                <div class="weapon-info">
+                    <h2 class="weapon-name">@Html.DisplayFor(model => model.WeaponName)</h2>
+                    <p class="quantity">@Html.DisplayNameFor(model => model.Quantity): @Html.DisplayFor(model => model.Quantity)</p>
+                    <p class="description">@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</p>
+                    <div class="price-section">
+                        <p class="price">@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price)</p>
+                        @if (Model.Discount > 0)
+                        {
+                            <p class="discount">@Html.DisplayNameFor(model => model.Discount): @Html.DisplayFor(model => model.Discount)%</p>
+                        }
+                        <p class="total-price">@Html.DisplayNameFor(model => model.TotalPrice): @Html.DisplayFor(model => model.TotalPrice)</p>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Confirm" class="create-new-btn" />
+                        <a asp-controller="Weapon" asp-action="Index" class="create-new-btn">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     <input type="hidden" asp-for="WeaponId" value="@Model.WeaponId" />
     <input type="hidden" asp-for="Quantity" value="@Model.Quantity" />
     <input type="hidden" asp-for="Description" value="@Model.Description" />
@@ -93,8 +164,5 @@
     <input type="hidden" asp-for="Price" value="@Model.Price" />
     <input type="hidden" asp-for="Discount" value="@Model.Discount" />
 </form>
-<div>
-    <a asp-controller="Weapon" asp-action="Index">Back to List</a>
-</div>
 </body>
 

@@ -21,6 +21,7 @@ namespace SwordParadise.Models.Order
         [Display(Name = "Quantity")]
         public int Quantity { get; set; }
         public string Description { get; set; }
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
         public decimal TotalPrice { get; set; }

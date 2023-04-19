@@ -24,6 +24,7 @@ namespace SwordParadise.Models.Weapon
         [Display(Name = "Price")]
         public decimal Price { get; set; }
         [Display(Name = "Discount")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public decimal Discount { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿@model SwordParadise.Models.Weapon.WeaponDetailsVM
+﻿@using SwordParadise.Models.Order;
+@model SwordParadise.Models.Weapon.WeaponDetailsVM
 
 @{
     ViewData["Title"] = "Details";
@@ -19,7 +20,6 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
 }
-
 .container {
   width: 80%;
   margin: 0 auto;
@@ -148,62 +148,163 @@ h1 {
     width: 100%;
     margin-bottom: 20px;
   }
-}
+
+    .weapon-details-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .weapon-details {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        width: 80%;
+    }
+
+    .weapon-image img {
+        max-width: 400px;
+    }
+
+    .weapon-info {
+        margin-left: 50px;
+    }
+
+    .weapon-name {
+        font-size: 36px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .brand,
+    .category,
+    .quantity,
+    .description {
+        margin: 0;
+        font-size: 18px;
+    }
+
+        .brand:before,
+        .category:before,
+        .quantity:before,
+        .description:before {
+            font-weight: bold;
+            content: attr(data-display-name) ": ";
+        }
+
+    .price-section {
+        margin-top: 20px;
+    }
+
+    .price {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .discount {
+        margin: 0;
+        font-size: 24px;
+        color: #ff0000;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .create-new-container {
+        text-align: center;
+    }
+
+    .create-new-btn {
+        background-color: #fe90d2;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .create-new-btn:hover {
+            background-color: #ff6fba;
+            text-decoration: none;
+            color: black;
+        }
+
+        .create-new-btn:focus {
+            outline: none;
+        }
+
+    .order-part {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+        .order-part form {
+            display: inline-block;
+        }
+
+        .order-part .btn-order {
+            background-color: #00bcd4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+            .order-part .btn-order:hover {
+                background-color: #008c9e;
+            }
+
+        .order-part .form-group {
+            margin-bottom: 10px;
+        }
+
+        .order-part .form-control {
+            display: inline-block;
+            width: 60px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
 </style>
 <body class="gradient-custom">
 <div>
-    <h4>WeaponDetailsVM</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeaponName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeaponName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BrandName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BrandName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CategoryName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Picture)
-        </dt>
-        <dd class="col-sm-10">
-            <img src="@Html.DisplayFor(model => model.Picture)" alt="Image" width="100" />
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Discount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Discount)
-        </dd>
-    </dl>
+        <div class="weapon-details-container">
+            <div class="weapon-details">
+                <div class="weapon-image">
+                    <img src="@Html.DisplayFor(model => model.Picture)" alt="Image" />
+                </div>
+                <div class="weapon-info">
+                    <h2 class="weapon-name">@Html.DisplayFor(model => model.WeaponName)</h2>
+                    <p class="brand">@Html.DisplayNameFor(model => model.BrandName): @Html.DisplayFor(model => model.BrandName)</p>
+                    <p class="category">@Html.DisplayNameFor(model => model.CategoryName): @Html.DisplayFor(model => model.CategoryName)</p>
+                    <p class="quantity">@Html.DisplayNameFor(model => model.Quantity): @Html.DisplayFor(model => model.Quantity)</p>
+                    <p class="description">@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</p>
+                    <div class="price-section">
+                        <p class="price">@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price)</p>
+                        @if (Model.Discount > 0)
+                        {
+                            <p class="discount">@Html.DisplayNameFor(model => model.Discount): @Html.DisplayFor(model => model.Discount)%</p>
+                        }
+                    </div>
+                    @if (this.User.Identity.IsAuthenticated)
+                    {
+                        @await Html.PartialAsync("_OrderPartialView", new OrderConfirmVM
+                    {
+                    WeaponId = Model.Id
+                    })
+                    }
+                </div>
+            </div>
+        </div>
     <h1>Reviews</h1>
     <div id="reviews"></div>
     <div class="arrows">
@@ -212,14 +313,15 @@ h1 {
     </div><br />
     @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
     {
-        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-    }|
-    <a asp-action="Index">Back to List</a>
+            <a href="@Url.Action("Edit", new {id = Model.Id})" class="create-new-btn">Edit</a>
+    }
+    <a href="@Url.Action("index")" class="create-new-btn">Back to List</a>
 </div>
 </body>
 <script>
     function generateRandomReview() {
         const names = ["John", "Jane", "Bob", "Samantha", "Emily", "Ethan", "Olivia", "Liam", "Sophia", "Noah", "Emma", "William", "Isabella", "James", "Mia"];
+        const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Perez", "Taylor", "Anderson", "Wilson", "Jackson", "Graham", "Nelson", "White", "Harris", "Moore", "Clark", "Lewis", "Walker", "Young", "Allen", "King", "Wright", "Scott", "Green", "Baker", "Adams", "Hall", "Rivera", "Mitchell", "Carter", "Thomas", "Lee", "Collins", "Roberts", "Phillips", "Edwards", "Turner", "Campbell", "Parker", "Evans", "Cooper", "Reed", "Stewart", "Morris", "Nguyen", "Murphy", "Cook", "Rogers", "Gray", "Hughes", "Flores", "Wood", "James", "Kim", "Watson", "Dean", "Morgan", "Reyes", "Bennett", "Ross", "Hill", "Powell", "Foster", "Perry", "Long", "Butler"];
         const comments = [
             "This product is amazing!",
             "I love this product so much.",
@@ -240,8 +342,9 @@ h1 {
         ];
         const stars = Math.floor(Math.random() * 2) + 4;
         const name = names[Math.floor(Math.random() * names.length)];
+        const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
         const comment = comments[Math.floor(Math.random() * comments.length)];
-        return { name, comment, stars };
+        return { name, lastName, comment, stars };
     }
 
     let currentReviewIndex = 0;
@@ -256,7 +359,7 @@ h1 {
 
             const nameElement = document.createElement("span");
             nameElement.classList.add("name");
-            nameElement.textContent = review.name;
+            nameElement.textContent = review.name + " " + review.lastName; // include last name in nameElement
             reviewContainer.appendChild(nameElement);
 
             const starsElement = document.createElement("span");

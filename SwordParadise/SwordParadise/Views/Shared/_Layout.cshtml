@@ -9,88 +9,46 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
-    .navbar {
+    .navbar-container {
+        width: 140%;
+        max-width: 1800px;
+    }
+
+    .navbar-search form .input-group {
+        margin-right: 10px; /* adjust as needed */
+    }
+
+    .navbar-search form .input-group input[type="text"] {
+        border-color: black;
+        color: #000;
+        border-radius: 20px;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .navbar-search form .input-group input[type="text"]:focus {
+            border-color: grey;
+            box-shadow: none;
+        }
+
+    .navbar-search form .input-group .input-group-append .btn {
+        margin-left: 10px; /* adjust as needed */
         background-color: #fe90d2;
-        font-weight: 600;
-        font-size: 0.9rem; /* Added this */
+        color: #fff;
+        border-radius: 20px;
+        border-color: #fe90d2;
+        transition: all 0.3s ease-in-out;
     }
 
-    .navbar-brand {
-        color: #fefa3f;
-    }
-
-    .nav-item {
-        margin-right: 1rem;
-    }
-
-    .nav-link {
-        color: #fefa3f;
-        transition: color 0.2s;
-    }
-
-        .nav-link:hover {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-    .navbar-toggler {
-        border-color: #fefa3f;
-    }
-
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(254, 250, 63, 1)' strokeLinecap='round' strokeMiterlimit='10' strokeWidth='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-    }
-
-    .dropdown-toggle::after {
-        border-top-color: #fefa3f;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-    }
-
-    .dropdown-item {
-        color: #fe90d2;
-        transition: background-color 0.2s, color 0.2s;
-    }
-
-        .dropdown-item:hover {
+        .navbar-search form .input-group .input-group-append .btn:hover {
             background-color: #fefa3f;
-            color: #fe90d2;
-            text-decoration: none;
-        }
-
-    .btn-outline-success {
-        border-color: #fefa3f;
-        color: #fefa3f;
-        transition: background-color 0.2s, color 0.2s;
-    }
-
-        .btn-outline-success:hover {
-            background-color: #fefa3f;
-            color: #fe90d2;
-            text-decoration: none;
-        }
-
-    .form-inline .form-control {
-        border-color: #fefa3f;
-    }
-
-        .form-inline .form-control:focus {
+            color: #000;
             border-color: #fefa3f;
-            box-shadow: 0 0 0 0.2rem rgba(254, 250, 63, 0.25);
         }
-    .btn {
-        border-color: #fefa3f;
-    }
-    .btn:hover {
-        background-color: #fe90d2;
-        border-color: #fefa3f;
-    }
 </style>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+            <div class="navbar-container container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SwordParadise</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -128,10 +86,19 @@
                             </li>
                         }
                     </ul>
-                    <form class="form-inline my-2 my-lg-0" asp-controller="Weapon" asp-action="Index" method="get">
-                        <input class="form-control mr-sm-2" type="search" name="SearchStringWeaponName" placeholder="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color:black">Search</button>
-                    </form>
+<div class="navbar-search ml-auto">
+  <form asp-controller="Weapon" asp-action="Index" method="get">
+    <div class="input-group">
+      <input type="text" class="form-control" name="searchStringWeaponName" placeholder="Search for a weapon...">
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-outline-secondary">
+          <i class="fas fa-search"></i> <span class="button-text">Search</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
                     <partial name="_LoginPartial" />
                 </div>
             </div>

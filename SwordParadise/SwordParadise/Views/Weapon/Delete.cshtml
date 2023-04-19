@@ -31,81 +31,112 @@
         text-align: center;
         margin-bottom: 20px;
     }
+
+    .weapon-details-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .weapon-details {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        width: 80%;
+    }
+
+    .weapon-image img {
+        max-width: 400px;
+    }
+
+    .weapon-info {
+        margin-left: 50px;
+    }
+
+    .weapon-name {
+        font-size: 36px;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    .brand-id,
+    .brand,
+    .category-id,
+    .category,
+    .quantity,
+    .description {
+        margin: 0;
+        font-size: 18px;
+    }
+        .brand-id:before,
+        .brand:before,
+        .category-id:before,
+        .category:before,
+        .quantity:before,
+        .description:before {
+            font-weight: bold;
+            content: attr(data-display-name) ": ";
+        }
+
+    .price-section {
+        margin-top: 20px;
+    }
+
+    .price {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .discount {
+        margin: 0;
+        font-size: 24px;
+        color: #ff0000;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .create-new-container {
+        text-align: center;
+    }
 </style>
 <body class="gradient-custom">
 <h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+    <div style="text-align: center;">
+        <h3>Are you sure you want to delete this?</h3>
+    </div>
 <div>
-    <h4>WeaponDeleteVM</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeaponName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeaponName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BrandId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BrandId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BrandName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BrandName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CategoryId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CategoryId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CategoryName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Picture)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Picture)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Discount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Discount)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+        <div class="weapon-details-container">
+            <div class="weapon-details">
+                <div class="weapon-image">
+                    <img src="@Html.DisplayFor(model => model.Picture)" alt="Image" />
+                </div>
+                <div class="weapon-info">
+                    <h2 class="weapon-name">@Html.DisplayFor(model => model.WeaponName)</h2>
+                    <p class="brand-id">@Html.DisplayNameFor(model => model.BrandId): @Html.DisplayFor(model => model.BrandId)</p>
+                    <p class="brand">@Html.DisplayNameFor(model => model.BrandName): @Html.DisplayFor(model => model.BrandName)</p>
+                    <p class="category-id">@Html.DisplayNameFor(model => model.CategoryId): @Html.DisplayFor(model => model.CategoryId)</p>
+                    <p class="category">@Html.DisplayNameFor(model => model.CategoryName): @Html.DisplayFor(model => model.CategoryName)</p>
+                    <p class="quantity">@Html.DisplayNameFor(model => model.Quantity): @Html.DisplayFor(model => model.Quantity)</p>
+                    <p class="description">@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</p>
+                    <div class="price-section">
+                        <p class="price">@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price)</p>
+                        @if (Model.Discount > 0)
+                        {
+                            <p class="discount">@Html.DisplayNameFor(model => model.Discount): @Html.DisplayFor(model => model.Discount)%</p>
+                        }
+                    </div>
+                    <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id" />
+                            <input type="submit" value="Delete" class="btn btn-danger" /> |
+                            <a asp-action="Index">Back to List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
 </div>
 </body>

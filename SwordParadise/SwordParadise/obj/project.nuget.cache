@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OYTtWftFWbNqY7yn07d/6U7nUBhLBHTTKEAF9yRjSd75upNWW3CwgdvC6fNIwl9+IEe1kyEzr33SqYdhKUIh8A==",
+  "dgSpecHash": "K9Jcpi1vRCQZw37rwbMrnHv5ukWph+JgOvdyPUHkpTC01y5uRGtPEtkz6zZlVqWb+QehbGCMJeUyWAL29/kUMA==",
   "success": true,
-  "projectFilePath": "D:\\Diploma\\SwordParadise\\SwordParadise\\SwordParadise.csproj",
+  "projectFilePath": "D:\\Diplomna\\SwordParadise\\SwordParadise\\SwordParadise.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tsm_d\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\tsm_d\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
