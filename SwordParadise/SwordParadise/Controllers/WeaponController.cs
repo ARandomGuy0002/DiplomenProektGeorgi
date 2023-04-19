@@ -58,9 +58,9 @@ namespace SwordParadise.Controllers
 
         }
         [AllowAnonymous]
-        public ActionResult Index(string searchStringCategoryName, string searchStringBrandName) 
+        public ActionResult Index(string searchStringCategoryName, string searchStringBrandName, string searchStringWeaponName) 
         {
-            List<WeaponIndexVM> weapons = _weaponService.GetWeapons(searchStringCategoryName, searchStringBrandName)
+            List<WeaponIndexVM> weapons = _weaponService.GetWeapons(searchStringCategoryName, searchStringBrandName, searchStringWeaponName)
             .Select(weapon => new WeaponIndexVM 
             {
                 Id = weapon.Id,

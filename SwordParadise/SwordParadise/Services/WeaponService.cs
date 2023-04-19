@@ -49,13 +49,17 @@ namespace SwordParadise.Services
             _context.Remove(weapon);
             return _context.SaveChanges() != 0;
         }
-        public List<Weapon> GetWeapons(string searchStringCategoryName, string searchStringBrandName) 
+        public List<Weapon> GetWeapons(string searchStringCategoryName, string searchStringBrandName, string searchStringWeaponName) 
         {
             List<Weapon> weapons = _context.Weapons.ToList();
             if (!String.IsNullOrEmpty(searchStringCategoryName) && !String.IsNullOrEmpty(searchStringBrandName))
             {
                 weapons = weapons.Where(x => x.Category.CategoryName.ToLower().Contains(searchStringCategoryName.ToLower())
                 && x.Brand.BrandName.ToLower().Contains(searchStringBrandName.ToLower())).ToList();
+            }
+            else if (!String.IsNullOrEmpty(searchStringWeaponName))
+            {
+                weapons = weapons.Where(x => x.WeaponName.ToLower().Contains(searchStringWeaponName.ToLower())).ToList();
             }
             else if (!String.IsNullOrEmpty(searchStringCategoryName))
             {

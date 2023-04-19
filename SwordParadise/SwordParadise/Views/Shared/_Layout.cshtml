@@ -8,6 +8,85 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<style>
+    .navbar {
+        background-color: #fe90d2;
+        font-weight: 600;
+        font-size: 0.9rem; /* Added this */
+    }
+
+    .navbar-brand {
+        color: #fefa3f;
+    }
+
+    .nav-item {
+        margin-right: 1rem;
+    }
+
+    .nav-link {
+        color: #fefa3f;
+        transition: color 0.2s;
+    }
+
+        .nav-link:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+    .navbar-toggler {
+        border-color: #fefa3f;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(254, 250, 63, 1)' strokeLinecap='round' strokeMiterlimit='10' strokeWidth='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    .dropdown-toggle::after {
+        border-top-color: #fefa3f;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+
+    .dropdown-item {
+        color: #fe90d2;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+        .dropdown-item:hover {
+            background-color: #fefa3f;
+            color: #fe90d2;
+            text-decoration: none;
+        }
+
+    .btn-outline-success {
+        border-color: #fefa3f;
+        color: #fefa3f;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+        .btn-outline-success:hover {
+            background-color: #fefa3f;
+            color: #fe90d2;
+            text-decoration: none;
+        }
+
+    .form-inline .form-control {
+        border-color: #fefa3f;
+    }
+
+        .form-inline .form-control:focus {
+            border-color: #fefa3f;
+            box-shadow: 0 0 0 0.2rem rgba(254, 250, 63, 0.25);
+        }
+    .btn {
+        border-color: #fefa3f;
+    }
+    .btn:hover {
+        background-color: #fe90d2;
+        border-color: #fefa3f;
+    }
+</style>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -17,8 +96,8 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -28,28 +107,31 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Weapon" asp-action="Index">Weapons</a>
                         </li>
+                        @if ((this.User.Identity.IsAuthenticated))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="MyOrders">My Orders</a>
+                            </li>
+                        }
                         @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
                         {
-                            <li class="nav-item active">
-                                <div class="dropdown show">
-                                    <a class="nav-link active dropdown-toggle" href="#"
-                                       id="dropdownMenuLink"
-                                       data-toggle="dropdown"
-                                       aria-haspopup="true"
-                                       aria-expanded="false">
-                                       Statistic Modul
-                                    </a>
-
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" asp-controller="Client" asp-action="Index">Clients</a>
-                                        <a class="dropdown-item" asp-controller="Order" asp-action="Index">Orders</a>
-                                        <a class="dropdown-item" asp-controller="Statistics" asp-action="Index">Statistics</a>
-                                    </div>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Statistic Modul
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" asp-controller="Client" asp-action="Index">Clients</a>
+                                    <a class="dropdown-item" asp-controller="Order" asp-action="Index">Orders</a>
+                                    <a class="dropdown-item" asp-controller="Statistics" asp-action="Index">Statistics</a>
                                 </div>
-
                             </li>
                         }
                     </ul>
+                    <form class="form-inline my-2 my-lg-0" asp-controller="Weapon" asp-action="Index" method="get">
+                        <input class="form-control mr-sm-2" type="search" name="SearchStringWeaponName" placeholder="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color:black">Search</button>
+                    </form>
                     <partial name="_LoginPartial" />
                 </div>
             </div>

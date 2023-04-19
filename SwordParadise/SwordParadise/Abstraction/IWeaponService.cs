@@ -10,6 +10,6 @@ namespace SwordParadise.Abstraction
         List<Weapon> GetWeapons();
         Weapon GetWeaponById(int weaponId);
         bool RemoveById(int weaponId);
-        List<Weapon> GetWeapons(string searchStringCategoryName, string searchStringBrandName);
+        List<Weapon> GetWeapons(string searchStringCategoryName, string searchStringBrandName, string searchStringWeaponName);
     }
 }
