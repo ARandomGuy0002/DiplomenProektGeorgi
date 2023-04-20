@@ -19,14 +19,6 @@
         background-color: #f2f2f2;
     }
 
-    .body-container {
-        width: 80%;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
     .container {
         width: 80%;
         margin: 0 auto;
@@ -40,16 +32,54 @@
         text-align: center;
         margin-bottom: 20px;
     }
+
+    .table-container {
+        max-width: 860px;
+        max-height: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+    }
+
+        /* Style the scrollbar */
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background-color: #fe90d2;
+            border-radius: 20px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background-color: #f3f3f3;
+        }
+
+    /* Add a box shadow effect to the table rows */
+    .table tbody tr {
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .table tbody tr:hover {
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+            background-color: #f9f9f9;
+        }
 </style>
 <body class="gradient-custom">
-<h4 class="text-center">Statistics</h4>
 <div class="text-center">
     <div class="col-x1-8">
         <div class="card-group pb-0">
             <div class="card-columns text-center">
             </div>
         </div>
+        <div class="table-container">
         <table class="table table-striped" style="width:100%">
+            <h1>Statistics</h1>
             <thead>
                 <tr>
                     <th>
@@ -83,6 +113,7 @@
                 </tr>
             </tbody>
         </table>
+        </div>
     </div>
 </div>
 </body>

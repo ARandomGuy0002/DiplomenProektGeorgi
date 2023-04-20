@@ -4,6 +4,10 @@
     ViewData["Title"] = "MyOrders";
 }
 <style>
+    .search-container {
+  max-width: 300px;
+        margin: 0 auto;
+}
     .gradient-custom {
         background: linear-gradient(to bottom, #fe90d2, #fefa3f);
     }
@@ -18,14 +22,6 @@
         background-color: #f2f2f2;
     }
 
-    .body-container {
-        width: 80%;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
     .container {
         width: 80%;
         margin: 0 auto;
@@ -33,6 +29,14 @@
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .container1 {
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        max-width: 860px;
     }
 
     h1 {
@@ -59,24 +63,97 @@
             color: #000;
             border-color: #fefa3f;
         }
+
+    .table-container {
+        max-width: 860px;
+        max-height: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+    }
+
+        /* Style the scrollbar */
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background-color: #fe90d2;
+            border-radius: 20px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background-color: #f3f3f3;
+        }
+
+    /* Add a box shadow effect to the table rows */
+    .table tbody tr {
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .table tbody tr:hover {
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+            background-color: #f9f9f9;
+        }
+        #space1
+        {
+            padding: 10px;
+        }
+
+    #space2 {
+        padding: 2px;
+    }
+            .create-new-btn {
+        background-color: #fe90d2;
+        color: white;
+            text-decoration: none;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .create-new-btn:hover {
+            background-color: #ff6fba;
+            text-decoration: none;
+            color: black;
+        }
+
+                .create-new-btn:focus {
+                    outline: none;
+        }
 </style>
 <body class="gradient-custom">
+<div class="container1">
 <h1>My Orders</h1>
-<p>
-    <a asp-controller="Weapon" asp-action="Index">Back to Weapons</a>
-</p>
-    <div class="navbar-search ml-auto">
-    <form asp-controller="Order" asp-action="MyOrders" method="get">
-        <div class="input-group">
-            <input type="text" class="form-control" name="searchString">
-            <div class="input-group-append">
-                <button type="submit" value="Filter" class="btn btn-outline-secondary">
-                    <i class="fas fa-search"></i> <span class="button-text">Filter</span>
-                </button>
-            </div>
+    <div class="search-container">
+        <div class="navbar-search ml-auto">
+            <form asp-controller="Order" asp-action="MyOrders" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="searchString">
+                    <div class="input-group-append">
+                        <button type="submit" value="Filter" class="btn btn-outline-secondary">
+                            <i class="fas fa-search"></i> <span class="button-text">Filter</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+        <p id="space2"></p>
     </div>
+        <div>
+            <a asp-controller="Weapon" asp-action="Index" class="create-new-btn">Back to Weapons</a>
+        </div>
+    </div>
+    <p id="space1"></p>
+<div class="table-container">
 <table class="table">
     <thead>
         <tr>
@@ -138,6 +215,7 @@
 }
     </tbody>
 </table>
+</div>
 </body>
 @section Scripts{
     @{

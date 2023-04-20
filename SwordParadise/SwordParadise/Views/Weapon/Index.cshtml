@@ -5,6 +5,48 @@
     ViewData["Title"] = "Index";
 }
 <style>
+    .btn-e {
+        background-color: dimgrey;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-e:hover {
+    background-color: grey;
+    text-decoration: none;
+    color: white
+}
+
+.btn-e:focus {
+    outline: none;
+}
+    .create-new-btn1 {
+        background-color: #c9c900;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-new-btn1:hover {
+    background-color: #d4d42f;
+    text-decoration: none;
+    color: black;
+}
+
+.create-new-btn1:focus {
+    outline: none;
+}
     .button-container {
         display: flex;
         flex-wrap: wrap;
@@ -60,7 +102,7 @@
         }
 
     input[type="submit"] {
-        background-color: #fe90d2;
+        background-color: #c9c900;
         color: white;
         padding: 10px 20px;
         border: none;
@@ -73,7 +115,8 @@
     }
 
         input[type="submit"]:hover {
-            background-color: #ff6fba;
+            background-color: #d4d42f;
+            color: black;
         }
 
         input[type="submit"]:focus {
@@ -123,7 +166,7 @@
     }
 
     .body-container {
-        width: 80%;
+        max-width: 1160px;
         margin: 0 auto;
         padding: 20px;
         background-color: #fff;
@@ -218,7 +261,7 @@
             @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
             {
                 <div class="create-new-container">
-                    <a href="@Url.Action("Create")" class="create-new-btn">Create New</a>
+                    <a href="@Url.Action("Create")" class="create-new-btn1">Create New</a>
                 </div>
             }
         </form>
@@ -250,11 +293,11 @@
                 <div class="admin-options">
                     @if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Administrator"))
                     {
-                        <a href="@Url.Action("Edit", new {id = item.Id})" class="create-new-btn">Edit</a>
+                        <a href="@Url.Action("Edit", new {id = item.Id})" class="btn-e">Edit</a>
                     }
                     @if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Administrator"))
                     {
-                        <a href="@Url.Action("Delete", new {id = item.Id})" class="create-new-btn">Delete</a>
+                        <a href="@Url.Action("Delete", new {id = item.Id})" class="btn-e">Delete</a>
                     }
                 </div>
             </div>

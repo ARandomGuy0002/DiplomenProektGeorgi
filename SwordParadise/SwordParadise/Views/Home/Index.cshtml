@@ -1,7 +1,121 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
 }
 <style>
+    .btn1 {
+        position: relative;
+        display: inline-block;
+        padding: 10px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        color: #fff;
+        background-color: #ffce00;
+        border: 3px solid #ffce00;
+        transition: all 0.4s ease-in-out;
+    }
+
+        .btn1:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .btn1:hover:before {
+            width: 100%;
+        }
+
+        .btn1:hover {
+            transform: scale(1.05);
+            background-color: #fe90d2;
+            border-color: #fe90d2;
+        }
+
+        .btn1:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: all 0.4s ease-in-out;
+            color:white;
+        }
+
+        .btn1:hover:after {
+            width: 150%;
+            height: 150%;
+            opacity: 0;
+            color:white;
+        }
+    .text-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    }
+
+    .rounded {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  max-width: 1160px;
+  height: 300px;
+  background-image: url('https://imagedelivery.net/9sCnq8t6WEGNay0RAQNdvQ/UUID-cl9bo1q330106qxotlhvzcnif/public');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+}
+    .display-4 {
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        color:white;
+        text-shadow: 2px 2px #fe90d2;
+        position: relative;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .display-4:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background-color: papayawhip;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .display-4:hover:before {
+            width: 150%;
+            height: 150%;
+            opacity: 0;
+        }
+
+        .display-4:hover {
+            transform: scale(1.1);
+        }
+
+
+
+
+
     .gradient-custom {
         background: linear-gradient(to bottom, #fe90d2, #fefa3f);
     }
@@ -16,14 +130,6 @@
         background-color: #f2f2f2;
     }
 
-    .body-container {
-        width: 80%;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
     .container {
         width: 80%;
         margin: 0 auto;
@@ -40,8 +146,17 @@
 </style>
 <body class="gradient-custom">
 @Html.Partial("Over18Popup")
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="rounded">
+  <div class="text-center">
+    <h1 class="display-4">Welcome to Sword Paradise</h1>
+  </div>
 </div>
+    <div class="text-center mt-3">
+        <a href="@Url.Action("Index", "Weapon")" class="btn1 btn-lg py-3 px-5">Shop Here</a>
+    </div>
 </body>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
