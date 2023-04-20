@@ -9,6 +9,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
+    .dropdown-menu {
+        transition: all 0.3s ease-in-out;
+    }
     .navbar-container {
         width: 140%;
         max-width: 1800px;
@@ -44,10 +47,15 @@
             color: #000;
             border-color: #fefa3f;
         }
+
+        #space
+        {
+            padding: 40px;
+        }
 </style>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
             <div class="navbar-container container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SwordParadise</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -104,14 +112,15 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="body-container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <p id="space"></p>
+    <footer class="navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3 footer text-muted">
+        <div class="navbar-container container">
             &copy; 2023 - SwordParadise - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>

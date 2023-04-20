@@ -18,6 +18,14 @@
         background-color: #f2f2f2;
     }
 
+    .body-container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
     .container {
         width: 80%;
         margin: 0 auto;
@@ -31,18 +39,44 @@
         text-align: center;
         margin-bottom: 20px;
     }
+
+    .navbar-search form .input-group input[type="text"]:focus {
+        border-color: grey;
+        box-shadow: none;
+    }
+
+    .navbar-search form .input-group .input-group-append .btn {
+        margin-left: 10px; /* adjust as needed */
+        background-color: #fe90d2;
+        color: #fff;
+        border-radius: 20px;
+        border-color: #fe90d2;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .navbar-search form .input-group .input-group-append .btn:hover {
+            background-color: #fefa3f;
+            color: #000;
+            border-color: #fefa3f;
+        }
 </style>
 <body class="gradient-custom">
 <h1>My Orders</h1>
 <p>
     <a asp-controller="Weapon" asp-action="Index">Back to Weapons</a>
 </p>
-<form asp-controller="Order" asp-action="MyOrders" method="get">
-    <p>
-        Weapon name: <input type="text" name="searchString" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+    <div class="navbar-search ml-auto">
+    <form asp-controller="Order" asp-action="MyOrders" method="get">
+        <div class="input-group">
+            <input type="text" class="form-control" name="searchString">
+            <div class="input-group-append">
+                <button type="submit" value="Filter" class="btn btn-outline-secondary">
+                    <i class="fas fa-search"></i> <span class="button-text">Filter</span>
+                </button>
+            </div>
+        </div>
+    </form>
+    </div>
 <table class="table">
     <thead>
         <tr>

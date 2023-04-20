@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Diplomna\\SwordParadise\\SwordParadise\\SwordParadise.csproj": {}
+    "D:\\Diploma\\SwordParadise\\SwordParadise\\SwordParadise.csproj": {}
   },
   "projects": {
-    "D:\\Diplomna\\SwordParadise\\SwordParadise\\SwordParadise.csproj": {
+    "D:\\Diploma\\SwordParadise\\SwordParadise\\SwordParadise.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Diplomna\\SwordParadise\\SwordParadise\\SwordParadise.csproj",
+        "projectUniqueName": "D:\\Diploma\\SwordParadise\\SwordParadise\\SwordParadise.csproj",
         "projectName": "SwordParadise",
-        "projectPath": "D:\\Diplomna\\SwordParadise\\SwordParadise\\SwordParadise.csproj",
+        "projectPath": "D:\\Diploma\\SwordParadise\\SwordParadise\\SwordParadise.csproj",
         "packagesPath": "C:\\Users\\tsm_d\\.nuget\\packages\\",
-        "outputPath": "D:\\Diplomna\\SwordParadise\\SwordParadise\\obj\\",
+        "outputPath": "D:\\Diploma\\SwordParadise\\SwordParadise\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tsm_d\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -96,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
