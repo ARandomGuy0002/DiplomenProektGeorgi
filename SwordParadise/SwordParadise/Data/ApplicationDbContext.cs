@@ -7,6 +7,7 @@ using System.Text;
 using SwordParadise.Models.Weapon;
 using SwordParadise.Models.Order;
 using SwordParadise.Models.Client;
+using SwordParadise.Models.ContactUs;
 
 namespace SwordParadise.Data
 {
@@ -30,5 +31,6 @@ namespace SwordParadise.Data
         public DbSet<SwordParadise.Models.Order.OrderConfirmVM> OrderConfirmVM { get; set; }
         public DbSet<SwordParadise.Models.Client.ClientIndexVM> ClientIndexVM { get; set; }
         public DbSet<SwordParadise.Models.Client.ClientDeleteVM> ClientDeleteVM { get; set; }
+        public DbSet<ContactMessage> ContactMessages { get; set; }
     }
 }

@@ -1333,3 +1333,6 @@ D:\Diplomna\SwordParadise\SwordParadise\obj\Debug\net5.0\refint\SwordParadise.dl
 D:\Diplomna\SwordParadise\SwordParadise\obj\Debug\net5.0\SwordParadise.pdb
 D:\Diplomna\SwordParadise\SwordParadise\obj\Debug\net5.0\SwordParadise.genruntimeconfig.cache
 D:\Diplomna\SwordParadise\SwordParadise\obj\Debug\net5.0\ref\SwordParadise.dll
+D:\Diplomna\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Contact\Index.cshtml.g.cs
+D:\Diplomna\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Contact\ContactUs.cshtml.g.cs
+D:\Diplomna\SwordParadise\SwordParadise\obj\Debug\net5.0\Razor\Views\Home\ContactUsResult.cshtml.g.cs

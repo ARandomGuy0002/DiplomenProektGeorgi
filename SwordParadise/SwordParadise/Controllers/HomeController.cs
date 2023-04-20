@@ -37,5 +37,9 @@ namespace SwordParadise.Controllers
         {
             return View();
         }
+        public ActionResult ContactUsResult() 
+        {
+            return View();
+        }
     }
 }

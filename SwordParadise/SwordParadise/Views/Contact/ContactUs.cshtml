@@ -1,0 +1,201 @@
+﻿@if (TempData["MessageSent"] != null)
+{
+    <div class="alert">@TempData["MessageSent"]</div>
+}
+<body class ="gradient-custom">
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <div class="contact-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Phone_font_awesome.svg/1200px-Phone_font_awesome.svg.png" alt="Phone">
+                <a href="tel:+359894426167">+359894426167</a>
+            </div>
+            <div class="contact-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Envelope_alt_font_awesome.svg/1024px-Envelope_alt_font_awesome.svg.png" alt="Mail">
+                <a href="mailto:rankoma21@gmail.com">rankoma21@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <img src="https://cdn.pixabay.com/photo/2021/06/15/12/17/instagram-6338401_1280.png" alt="Instagram">
+                <a href="https://www.instagram.com/g_doichevv/">g_doichevv</a>
+            </div>
+            <div class="contact-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook">
+                <a href="https://www.facebook.com/ARandomqt/">Георги Дойчев</a>
+            </div>
+            <div class="contact-item">
+                <img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png" alt="Twitter">
+                <a href="https://twitter.com/randomqtt">randomqtt</a>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.4562549643165!2d23.038076476578226!3d42.61736921880593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aacad3c8a8f831%3A0x5feda170680a9f00!2sg.k.%20Prouchvane%2013%D0%90%2C%202301%20Prouchvane%2C%20Pernik!5e1!3m2!1sen!2sbg!4v1682011965738!5m2!1sen!2sbg" width="450" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+        </div>
+
+        <div class="contact-form">
+            <h3>Contact Form</h3>
+            <form method="post">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="firstName" value="@Model.FirstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="lastName" value="@Model.LastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" value="@Model.Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea class="form-control" name="comment" id="comment" required>@Model.Comment</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+<style>
+    .create-new-btn {
+        background-color: #fe90d2;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .create-new-btn:hover {
+            background-color: #ff6fba;
+            text-decoration: none;
+            color: black;
+        }
+
+        .create-new-btn:focus {
+            outline: none;
+        }
+    .gradient-custom {
+        background: linear-gradient(to bottom, #fe90d2, #fefa3f);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    .body-container {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contact-info {
+        border: 2px solid #ddd;
+        padding: 20px;
+        text-align: center;
+        background-color: white;
+        border-radius: 10px;
+        margin: 20px;
+        flex: 1;
+        max-width: 500px;
+    }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+    .contact-item {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #666;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+    }
+
+        .contact-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+        }
+
+            .contact-item a:hover {
+                color: #555;
+            }
+            .contact-form {
+  border: 2px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+  flex: 1;
+  max-width: 500px;
+}
+
+.contact-form h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+}
+</style>
