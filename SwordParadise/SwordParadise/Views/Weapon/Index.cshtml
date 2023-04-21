@@ -276,7 +276,7 @@
                 </a>
                 <p>@Html.DisplayFor(modelItem => item.Description)</p>
                 <p>Quantity: @Html.DisplayFor(modelItem => item.Quantity)</p>
-                <p>Price: @Html.DisplayFor(modelItem => @item.Price)</p>
+                <p>Price: @Html.DisplayFor(modelItem => @item.Price)$</p>
                 @if (item.Discount > 0)
                         {
                     <p>Discount: @Html.DisplayFor(modelItem => @item.Discount)%</p>

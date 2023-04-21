@@ -298,7 +298,7 @@ h1 {
                     <p class="quantity">@Html.DisplayNameFor(model => model.Quantity): @Html.DisplayFor(model => model.Quantity)</p>
                     <p class="description">@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</p>
                     <div class="price-section">
-                        <p class="price">@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price)</p>
+                        <p class="price">@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(model => model.Price)$</p>
                         @if (Model.Discount > 0)
                         {
                             <p class="discount">@Html.DisplayNameFor(model => model.Discount): @Html.DisplayFor(model => model.Discount)%</p>

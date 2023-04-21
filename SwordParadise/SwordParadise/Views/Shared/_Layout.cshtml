@@ -9,6 +9,60 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
+    .gradient-custom {
+        background: linear-gradient(to bottom, #fe90d2, #fefa3f);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+
+    .container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@@media (min-width: 576px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@@media (min-width: 768px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@@media (min-width: 992px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@@media (min-width: 1200px) {
+  .container {
+    width: 60%;
+  }
+}
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
     .dropdown-menu {
         transition: all 0.3s ease-in-out;
     }
@@ -52,12 +106,19 @@
         {
             padding: 40px;
         }
+
+    #space7 {
+        padding: 10px;
+    }
 </style>
-<body>
+<body class="gradient-custom">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
             <div class="navbar-container container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SwordParadise</a>
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="https://static.thenounproject.com/png/202094-200.png" alt="Image" style="width:70px; height:70px;" />
+                </a>
+                <p id="space7"></p>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -90,7 +151,7 @@
                                     <a class="dropdown-item" asp-controller="Client" asp-action="Index">Users</a>
                                     <a class="dropdown-item" asp-controller="Order" asp-action="Index">Orders</a>
                                     <a class="dropdown-item" asp-controller="Statistics" asp-action="Index">Statistics</a>
-                                    <a class="dropdown-item" asp-controller="Contact" asp-action="Index">MessageList</a>
+                                    <a class="dropdown-item" asp-controller="Contact" asp-action="Index">Message List</a>
                                 </div>
                             </li>
                         }
