@@ -30,9 +30,10 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.4562549643165!2d23.038076476578226!3d42.61736921880593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aacad3c8a8f831%3A0x5feda170680a9f00!2sg.k.%20Prouchvane%2013%D0%90%2C%202301%20Prouchvane%2C%20Pernik!5e1!3m2!1sen!2sbg!4v1682011965738!5m2!1sen!2sbg" width="450" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
         </div>
-
-        <div class="contact-form">
-            <h3>Contact Form</h3>
+    @if ((this.User.Identity.IsAuthenticated))
+        {
+            <div class="contact-form">
+                <h3>Contact Form</h3>
             <form method="post">
                 <div class="form-group">
                     <label for="firstName">First Name</label>
@@ -53,6 +54,7 @@
                 <button type="submit" class="create-new-btn btn-primary">Send</button>
             </form>
         </div>
+        }
     </div>
 </body>
 
