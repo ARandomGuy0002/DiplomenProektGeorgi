@@ -12,8 +12,8 @@
         text-decoration: none;
         font-weight: bold;
         color: #fff;
-        background-color: #ffce00;
-        border: 3px solid #ffce00;
+        background-color: black;
+        border: 3px solid black;
         transition: all 0.4s ease-in-out;
     }
 
@@ -35,8 +35,8 @@
 
         .btn1:hover {
             transform: scale(1.05);
-            background-color: #fe90d2;
-            border-color: #fe90d2;
+            background-color: darkred;
+            border-color: darkred;
         }
 
         .btn1:after {
@@ -73,12 +73,12 @@
         }
 
     .rounded {
+        background: linear-gradient(to bottom, red, #700000);
   border-radius: 20px;
   overflow: hidden;
   position: relative;
   max-width: 1160px;
-  height: 300px;
-  background-image: url('https://imagedelivery.net/9sCnq8t6WEGNay0RAQNdvQ/UUID-cl9bo1q330106qxotlhvzcnif/public');
+  height: 200px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -89,7 +89,7 @@
         font-weight: bold;
         text-align: center;
         color:white;
-        text-shadow: 2px 2px #fe90d2;
+        text-shadow: 2px 2px indianred;
         position: relative;
         transition: all 0.2s ease-in-out;
     }
@@ -123,7 +123,7 @@
 
 
     .gradient-custom {
-        background: linear-gradient(to bottom, #fe90d2, #fefa3f);
+        background: linear-gradient(to bottom, red, black);
     }
     * {
         box-sizing: border-box;
@@ -227,6 +227,57 @@
         {
             padding: 20px;
         }
+
+    .slideshow {
+        width: 1160px;
+        height: 300px;
+        position: relative;
+        margin: auto;
+    }
+
+        /* Hide all the slides by default */
+        .slideshow .slide {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        /* Show the active slide */
+        .slideshow .active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Style the caption */
+        .slideshow img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slideshow .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  padding: 20px;
+  font-size: 24px;
+  text-align: center;
+  opacity: 0.7;
+  transition: opacity 1s ease-out;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+        .slideshow:hover .caption {
+            opacity: 0;
+        }
 </style>
 <body class="gradient-custom">
 @Html.Partial("Over18Popup")
@@ -239,6 +290,21 @@
         </div>
     </div>
     <p id="space3"></p>
+    <div class="slideshow">
+        <div class="slide active">
+            <img src="https://media.cnn.com/api/v1/images/stellar/prod/150713141428-samurai-sword-kanesada.jpg?q=w_1160,h_300,x_0,y_0,c_fill" />
+            <div class="caption">The art of sword craftsmanship is a journey of both precision and passion, where every swing of the hammer and every stroke of the file is an expression of the soul. </div>
+        </div>
+        <div class="slide">
+            <img src="https://www.karatemart.com/images/products/large/blue-blade-hand-forged-katana-49534.jpg" />
+            <div class="caption">To forge a sword with one's own hands is to breathe life into a piece of metal, imbuing it with the strength and grace of a living creature.</div>
+        </div>
+        <div class="slide">
+            <img src="https://www.karatemart.com/images/products/large/heroes-journey-samurai-sword.jpg" />
+            <div class="caption">Creating a masterpiece of a sword is not just about forging metal, it is about pouring your heart into each step of the process, allowing the blade to become an extension of your very being. </div>
+        </div>
+    </div>
+    <p id="space3"></p>
         <div class="weapon-container">
             <div class="weapon-card">
                 <h2>Shusui</h2>
@@ -246,7 +312,7 @@
                     <img src="https://cdn11.bigcommerce.com/s-blqh8ck/images/stencil/1280x1280/products/5443/24899/IMG_9789__40952.1665028703.jpg?c=2&imbypass=on" alt="Image" />
                 </a>
                 <p>A sturdy katana inspired by the character Roronoa Zoro</p>
-                <p>Quantity: @Html.DisplayFor(modelItem => Model.Quantity)</p>
+                <p>Quantity: 50</p>
                 <p>Price: 150.00$</p>
                 <p>Discount: 10%</p>
                 <div class="admin-options">
@@ -301,6 +367,26 @@
             </div>
     </div>
 </body>
+<script>
+    var duration = 5000;
+
+    var slides = document.querySelectorAll('.slide');
+    var index = 0;
+
+    setInterval(function () {
+        // Hide the current slide
+        slides[index].classList.remove('active');
+
+        // Move to the next slide
+        index++;
+        if (index >= slides.length) {
+            index = 0;
+        }
+
+        // Show the next slide
+        slides[index].classList.add('active');
+    }, duration);
+</script>
 @section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
