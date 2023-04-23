@@ -64,6 +64,30 @@
                 .create-new-btn:focus {
                     outline: none;
         }
+        .form-control1 {
+  border: 2px solid #000;
+  border-radius: 20px;
+  color: #000;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+  width: 350px;
+  position: relative;
+        left: -110px;
+}
+
+.form-control1:focus {
+  border-color: darkred;
+  box-shadow: 0 0 0 0.2rem indianred;
+  outline: none;
+}
+        .form-group{
+            margin: 0 auto;
+            text-align: center;
+        }
+        #space8{
+            padding: 2px;
+        }
 </style>
 <body class="gradient-custom">
 <div class="row">
@@ -71,62 +95,65 @@
             <h1>Create</h1>
             <hr />
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="WeaponName" class="control-label"></label>
-                <input asp-for="WeaponName" class="form-control" />
-                <span asp-validation-for="WeaponName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BrandId" class="control-label"></label>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="WeaponName" class="control-label text-center"></label>
+                    <input asp-for="WeaponName" class="form-control1 text-center" />
+                    <span asp-validation-for="WeaponName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BrandId" class="control-label text-center"></label>
 
-                <select asp-for="BrandId" class = "form-control text-center">
-                    @foreach (var brand in Model.Brands)
-                    {
-                        <option value ="@brand.Id">@brand.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="BrandId" class="text-danger"></span>
-            </div> 
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                @*<input asp-for="CategoryId" class="form-control" />*@
-                 <select asp-for="CategoryId" class="form-control text-center">
-                    @foreach (var category in Model.Categories)
-                    {
+                    <select asp-for="BrandId" class="form-control1 text-center">
+                        @foreach (var brand in Model.Brands)
+                        {
+                            <option value="@brand.Id">@brand.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="BrandId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label text-center"></label>
+                    @*<input asp-for="CategoryId" class="form-control" />*@
+                    <select asp-for="CategoryId" class="form-control1 text-center">
+                        @foreach (var category in Model.Categories)
+                        {
                             <option value="@category.Id">@category.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Picture" class="control-label"></label>
-                <input asp-for="Picture" class="form-control" />
-                <span asp-validation-for="Picture" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Quantity" class="control-label"></label>
-                <input asp-for="Quantity" class="form-control" />
-                <span asp-validation-for="Quantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Discount" class="control-label"></label>
-                <input asp-for="Discount" class="form-control" />
-                <span asp-validation-for="Discount" class="text-danger"></span>
-            </div>
+                        }
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Picture" class="control-label text-center"></label>
+                    <input asp-for="Picture" class="form-control1 text-center" />
+                    <span asp-validation-for="Picture" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Quantity" class="control-label text-center"></label>
+                    <input asp-for="Quantity" class="form-control1 text-center" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label text-center"></label>
+                    <input asp-for="Description" class="form-control1 text-center" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label text-center"></label>
+                    <input asp-for="Price" class="form-control1 text-center" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Discount" class="control-label text-center"></label>
+                    <input asp-for="Discount" class="form-control1 text-center" />
+                    <span asp-validation-for="Discount" class="text-danger"></span>
+                </div>
+                <p id="space8"></p>
                 <div class="form-group">
                     <input type="submit" value="Save" class="create-new-btn" />
                 </div>
+                <p id="space8"></p>
                 <div>
                     <a asp-action="Index" class="create-new-btn">Back to List</a>
                 </div>
